@@ -24,7 +24,10 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      quotes: [
+        'Just a Quote to see something'
+      ],
+      maxQuotes: 10
     }
   }
 }
