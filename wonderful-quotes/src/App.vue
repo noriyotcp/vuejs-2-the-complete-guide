@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container">
-    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
-    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+    <AppHeader :quoteCount="quotes.length" :maxQuotes="maxQuotes" />
+    <NewQuote @quoteAdded="newQuote" />
+    <QuoteGrid :quotes="quotes" @quoteDeleted="deleteQuote" />
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="alert alert-info">Info: Click on a Quote to Delete it!</div>
@@ -27,9 +27,11 @@ export default {
     }
   },
   components: {
-    appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote,
-    appHeader: Header
+    QuoteGrid,
+    NewQuote,
+    // To avoid the following warning, use 'AppHeader'
+    // [Vue warn]: Do not use built-in or reserved HTML elements as component id: Header
+    AppHeader: Header
   },
   methods: {
     newQuote(quote) {
