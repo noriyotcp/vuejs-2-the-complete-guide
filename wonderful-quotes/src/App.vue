@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     newQuote(quote) {
-      if (!quote || quote.trim().length === 0) {
+      if (!quote) {
         return alert('Please write some text!')
       }
       if (this.quotes.length >= this.maxQuotes) {
