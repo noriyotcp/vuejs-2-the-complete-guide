@@ -9,23 +9,11 @@
 </template>
 
 <script>
-import { FRUITS } from './fruits'
+import { fruitMixin } from './fruitMixin'
 
 export default {
   name: 'app-list',
-  data () {
-    return {
-      fruits: FRUITS,
-      filterText: ''
-    }
-  },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter((element) => {
-        return element.match(this.filterText)
-      });
-    }
-  }
+  mixins: [fruitMixin]
 }
 </script>
 

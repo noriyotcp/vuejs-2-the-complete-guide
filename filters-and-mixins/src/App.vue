@@ -18,28 +18,20 @@
 </template>
 
 <script>
-import { FRUITS } from './fruits'
+import { fruitMixin } from './fruitMixin'
 import AppList from './AppList.vue'
 
 export default {
   name: 'app',
+  mixins: [fruitMixin],
   data () {
     return {
-      text: 'Hello there!',
-      fruits: FRUITS,
-      filterText: ''
+      text: 'Hello there!'
     }
   },
   filters: {
     toUpperCase(value) {
       return value.toUpperCase()
-    }
-  },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter((element) => {
-        return element.match(this.filterText)
-      });
     }
   },
   components: {
