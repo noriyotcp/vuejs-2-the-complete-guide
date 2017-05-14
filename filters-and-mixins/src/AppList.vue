@@ -19,11 +19,6 @@ export default {
       filterText: ''
     }
   },
-  filters: {
-    toUpperCase(value) {
-      return value.toUpperCase()
-    }
-  },
   computed: {
     filteredFruits() {
       return this.fruits.filter((element) => {
