@@ -13,7 +13,10 @@ import { fruitMixin } from './fruitMixin'
 
 export default {
   name: 'app-list',
-  mixins: [fruitMixin]
+  mixins: [fruitMixin],
+  created() {
+    console.log('Inside List Created Hook')
+  }
 }
 </script>
 
