@@ -8,7 +8,9 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <component :is="mode" @answered="answered($event)" @confirmed="mode = 'Answer'"></component>
+          <transition name="flip" mode="out-in">
+            <component :is="mode" @answered="answered($event)" @confirmed="mode = 'Answer'"></component>
+          </transition>
         </div>
       </div>
     </div>
@@ -44,30 +46,33 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.flip-enter {
+  /*transform: rotateY(0deg);*/
+}
+.flip-enter-active {
+  animation: flip-in 0.5s ease-out forwards;
+}
+.flip-leave {
+  /*transform: rotateY(0deg);*/
+}
+.flip-leave-active {
+  animation: flip-out 0.5s ease-out forwards;
 }
 
-h1, h2 {
-  font-weight: normal;
+@keyframes flip-out {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(90deg);
+  }
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+@keyframes flip-in {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
 }
 </style>
